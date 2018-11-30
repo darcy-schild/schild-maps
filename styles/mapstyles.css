@@ -1,0 +1,59 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+    background-color: #efe1dc;
+    margin: 0;
+    font-family: 'Montserrat', 'Arial', 'Tahoma', sans-serif;
+}
+
+p {
+    margin: 2rem auto;
+    margin-left: 2rem;
+    max-width: 70%;
+}
+
+header {
+    background-color: #dfc3b9;
+    padding: 2rem;
+    margin: 0;
+}
+
+#mapid {
+  height: 300px;
+  max-width: 70%;
+  margin: 2rem auto;
+  margin-left: 2rem;
+  }
+
+#secondmap {
+    height: 500px;
+    max-width: 70%;
+    margin: 2rem auto;
+    margin-left: 2rem;
+}
+
+
+@media screen and (max-width: 700px) {
+
+  #mapid {
+      max-width: 400px;
+      margin: 1rem auto;
+  }
+
+  #secondmap {
+      max-width: 300px;
+      margin: 1rem auto;
+  }
+
+  p {
+      margin: 1rem auto;
+  }
+
+}

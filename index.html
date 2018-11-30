@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Oldest U.S. Colleges</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- google fonts here, then CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+
+  <link rel="stylesheet" href="styles/mapstyles.css">
+
+</head>
+<body>
+
+<header>
+  <h1>The 20 Oldest Colleges in the U.S.</h1>
+</header>
+
+  <p>Explore the 20 oldest U.S. colleges. Click on each pin to discover the university's name, location and founding year.</p>
+  <p>Map created by Darcy Schild.</p>
+
+
+  <div id="secondmap">
+  </div>
+
+  <script src="scripts/places.json"></script>
+
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+  <script>
+  var mymap = L.map('secondmap').setView([39.773, -75.859], 4.2);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/darcyschild/cjoygjcd67hwf2sphw0p485jk/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZGFyY3lzY2hpbGQiLCJhIjoiY2pveWdoYnZoMW1vbjN2cnEzOWIycmd0ZiJ9.dkdzij7poWyWtj7_ARrfCQ', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18
+  }).addTo(mymap);
+
+        for ( let i = 0; i < places.length; i++ ) {
+            L.marker( [ places[i].lat, places[i].long ] )
+            .bindPopup ('<h3>' + places[i].name + '</h3>' + '<p>' + places[i].description + '<p>').addTo( mymap );
+        }
+
+  </script>
+
+
+</body>
+</html>
